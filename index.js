@@ -1,6 +1,8 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+canvas.style = "top: 0px; left: 0; right: 0px; bottom: 0px; margin: 0 auto; background: white;"
+
 var ball = {
   x: 100,
   y: 50,
@@ -19,8 +21,8 @@ const size = 30;
 
 for (let i = 0; i < size; i++) {
   particles.push({
-    x: getRndInteger(200, 400),
-    y: getRndInteger(200, 400),
+    x: getRndInteger(canvas.width / 2, 500),
+    y: getRndInteger(canvas.height / 2, 500),
     vx: 0,
     vy: 0,
     ax: 0,
@@ -137,17 +139,17 @@ function calculatePositions(particles) {
       particles[j].x += particles[j].vx;
       particles[j].y += particles[j].vy;
 
-      if (particles[i].x > 500 || particles[i].x < 0) {
+      if (particles[i].x > canvas.width || particles[i].x < 0) {
         particles[i].vx = -particles[i].vx;
       }
-      if (particles[i].y > 500 || particles[i].y < 0) {
+      if (particles[i].y > canvas.height || particles[i].y < 0) {
         particles[i].vy = -particles[i].vy;
       }
 
-      if (particles[j].x > 500 || particles[j].x < 0) {
+      if (particles[j].x > canvas.width || particles[j].x < 0) {
         particles[j].vx = -particles[j].vx;
       }
-      if (particles[j].y > 500 || particles[j].y < 0) {
+      if (particles[j].y > canvas.height || particles[j].y < 0) {
         particles[j].vy = -particles[j].vy;
       }
     }
