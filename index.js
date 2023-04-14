@@ -15,7 +15,7 @@ function getRndInteger(min, max) {
 }
 
 const coeff = 0.000001;
-const size = 20;
+const size = 30;
 
 for (let i = 0; i < size; i++) {
   particles.push({
@@ -100,7 +100,7 @@ function Fy(particle1, particle2) {
   return Fy;
 }
 
-function calculatePostions(particles) {
+function calculatePositions(particles) {
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const cFx = Fx(particles[i], particles[j]) * coeff;
@@ -178,7 +178,7 @@ function drawBall(ball) {
 
 function drawAnimation() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  calculatePostions(particles);
+  calculatePositions(particles);
   drawParticles(particles);
 }
 
@@ -190,17 +190,17 @@ function loop() {
 
 loop();
 
-canvas.onmousedown = function (e) {
-  /*   particles.push(
-        {
-          x: e.x,
-          y:  e.y,
-          vx: 0,
-          vy: 0,
-          ax: 0,
-          ay: 0,
-          Q: -50000,
-          mass: 2000000
-        }
-      ); */
-};
+// canvas.onmousedown = function (e) {
+//   particles.push(
+//     {
+//       x: e.x,
+//       y:  e.y,
+//       vx: 0,
+//       vy: 0,
+//       ax: 0,
+//       ay: 0,
+//       Q: -50000,
+//       mass: 2000000
+//     }
+//   );
+// };
